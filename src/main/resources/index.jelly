@@ -1,0 +1,7 @@
+<!--
+  This view is used to render the installed plugins page.
+-->
+<div>
+  This plugin add a scheduled non repeating trigger, this is nice for instalation scripts 
+    that are scheduled to run once at predefined dates.
+</div>

@@ -1,0 +1,28 @@
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
+
+    <f:entry title="Current Schedule">
+        <f:repeatable name="executeOn" field="executeOn" minimum="1" noAddButton="false">
+            <table width="100%">
+
+                <f:entry title="Run" field="value">
+                    <f:textbox/>
+                </f:entry>
+
+                <f:entry>
+                    <div align="right">
+                        <input type="button" value="Delete Schedule" class="repeatable-delete" style="margin-left: 1em;"/>
+                    </div>
+                </f:entry>
+            </table>
+
+        </f:repeatable>
+    </f:entry>
+    <f:advanced>
+        <f:entry title="Check interval" help="/descriptor/hudson.triggers.TimerTrigger/help/spec">
+            <f:textarea name="cronTabSpec"
+                    checkUrl="'${rootURL}/trigger/TimerTrigger/check?value='+encodeURIComponent(this.value)"
+                    value="${instance.spec}"
+                    default="* * * * *"/>
+        </f:entry>
+    </f:advanced>
+</j:jelly>
